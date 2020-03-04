@@ -1,0 +1,13 @@
+[HTTP]
+baseurl = http://10.158.5.246:8090/adviceAnalysis/views/login/login.jsp
+port = 8090
+
+[EMAIL]
+on_off = on
+subject = UI自动化测试报告
+sender = slayfune@yeah.net
+recipient = slayfune@yeah.net
+cc = slayfune@yeah.net
+smtp_server = smtp.yeah.net
+smtp_port = 25
+password = jackBABY1026
