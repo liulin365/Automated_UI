@@ -14,10 +14,10 @@ smtp_server = read_config.ReadConfig().get_email('smtp_server')
 smtp_port = read_config.ReadConfig().get_email('smtp_port')
 password = read_config.ReadConfig().get_email('password')
 
-#找出Report下最新的报告
+# 找出Report下最新的报告
 def find_new_email():
     lists = os.listdir(report_path)
-    lists.sort(key=lambda fn: os.path.getmtime(report_path + "\\" + fn) if not
+    lists.sort(key = lambda fn: os.path.getmtime(report_path + "\\" + fn) if not
     os.path.isdir(report_path + "\\" + fn) else 0)
     # print('最新的文件为： ' + lists[-1])
     file_name = lists[-1]
