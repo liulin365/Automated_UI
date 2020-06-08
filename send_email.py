@@ -53,4 +53,4 @@ def send_email(file_path,file_name):
 
 if __name__ == '__main__':
     a , b = find_new_email()
-    send_email(a,b)
+    # send_email(a,b)
