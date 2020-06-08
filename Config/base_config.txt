@@ -4,7 +4,7 @@ port = 8090
 
 [EMAIL]
 on_off = on
-subject = UI自动化测试报告
+subject = 接口自动化测试报告
 sender = slayfune@yeah.net
 recipient = slayfune@yeah.net
 cc = slayfune@yeah.net

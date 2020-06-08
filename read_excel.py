@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
-import get_path
-import xlrd
+from Config import get_path
+import xlrd3
 
 # 获取excel的路径
 def get_excel_path(excel_name):
@@ -12,7 +12,7 @@ def get_excel_path(excel_name):
 def get_excel(excel_name):
     cls = []
     # 打开excel并保存内容至open_excel
-    open_excel = xlrd.open_workbook(get_excel_path(excel_name))
+    open_excel = xlrd3.open_workbook(get_excel_path(excel_name))
     # 打开指定Sheet的内容保存至excel_sheet
     excel_sheet = open_excel.sheet_by_name("Sheet1")
     # 获取这个Sheet中内容的行数

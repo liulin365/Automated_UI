@@ -1,5 +1,5 @@
 import read_config
-import get_path
+from Config import get_path
 import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart

@@ -2,5 +2,5 @@
 from Test_Case import test_1 , test_2
 
 def case_list():
-    all_case_list = [test_1.Baidu,test_2.Youdao]
-    return all_case_list
+    choose_case = [test_1.Baidu,test_2.Youdao]
+    return choose_case

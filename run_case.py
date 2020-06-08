@@ -1,7 +1,7 @@
 import unittest
 import HTMLTestRunner
 import os
-import get_path
+from Config import get_path
 import time
 import send_email
 # import case_list
@@ -10,7 +10,7 @@ import send_email
 def creatsuit():
     testunit = unittest.TestSuite()
     #查找目录下的测试文件
-    case_path = os.path.join(get_path.get_path(),'Test_Case')
+    case_path = os.path.join(get_path.get_path(), 'Test_Case')
     discover = unittest.defaultTestLoader.discover(case_path , pattern = 'test_*.py' , top_level_dir = None)
     #将测试用例加入到测试套件中
     # test_case_list = case_list.case_list()
@@ -32,7 +32,7 @@ alltestnames = creatsuit()
 
 #生成并写入报告
 now = time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime(time.time()))
-report_path = os.path.join(get_path.get_path(),'Report')
+report_path = os.path.join(get_path.get_path(), 'Report')
 file_name = os.path.join(report_path ,'result_' + now + '.html')
 fp = open(file_name , 'wb')
 runner = HTMLTestRunner.HTMLTestRunner(stream = fp,description = '测试结果',title = '我的测试报告')
