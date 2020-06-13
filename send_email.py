@@ -22,35 +22,42 @@ def find_new_email():
     # print('最新的文件为： ' + lists[-1])
     file_name = lists[-1]
     file_path = os.path.join(report_path, lists[-1])
-    # print(file)
     return file_path , file_name
 
-# 发送最新的报告
-def send_email(file_path,file_name):
+# 制作邮件
+def make_email():
+    file_path , file_name = find_new_email()
     # 创建一个带附件的实例
     message = MIMEMultipart()
     message['From'] = sender
     message['To'] = recipient
     message['Subject'] = subject
     # 邮件正文内容
-    message.attach(MIMEText('WebUI自动化测试', 'plain', 'utf-8'))
+    message.attach(MIMEText('接口自动化测试报告', 'plain', 'utf-8'))
     # 构造附件
     att1 = MIMEText(open(file_path, 'rb').read(), 'base64', 'utf-8')
     att1["Content-Type"] = 'application/octet-stream'
     # 这里的filename可以任意写，写什么名字，邮件中显示什么名字
-    att1["Content-Disposition"] = f"attachment; filename={file_name}.html"
+    att1["Content-Disposition"] = f"attachment; filename = {file_name}.html"
     message.attach(att1)
-    try:
+    return message
+
+# 发送最新的邮件
+def send_email():
+    # try:
+        message = make_email()
         smtp = SMTP(smtp_server, smtp_port)
         smtp.login(sender, password)
         smtp.sendmail(sender, recipient, message.as_string())
-        # print("邮件已发送！")
-    except(Exception) as Error:
-        # print(Error+"邮件发送失败！")
-        pass
-    finally:
-        smtp.quit()
+    #     print("邮件已发送！")
+    #     except(Exception) as Error:
+    #     print("邮件发送失败！")
+    #     print(str(error))
+    #     print("错误文件：" + error.__traceback__.tb_frame.f_globals["__file__"])
+    #     print("错误行数：" + error.__traceback__.tb_lineno)
+    # finally:
+    #     smtp.quit()
+
 
 if __name__ == '__main__':
-    a , b = find_new_email()
-    # send_email(a,b)
+    send_email()
