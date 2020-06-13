@@ -4,7 +4,7 @@ import os
 from Config import get_path
 import time
 import send_email
-# import case_list
+import case_list
 
 #构造测试套件方法
 def creatsuit():
@@ -20,15 +20,6 @@ def creatsuit():
     return testunit
 
 alltestnames = creatsuit()
-
-# #手动选择需要执行的用例
-# #将用例组装数组
-# alltestnames = [case_list.test_1.Baidu,case_list.test_2.Youdao]
-# #创建测试套件
-# testunit = unittest.TestSuite()
-# #循环读取数组中的用例
-# for test in alltestnames:
-#     testunit.addTest(unittest.makeSuite(test))
 
 #生成并写入报告
 now = time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime(time.time()))
