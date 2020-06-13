@@ -35,7 +35,7 @@ now = time.strftime("%Y-%m-%d_%H-%M-%S", time.localtime(time.time()))
 report_path = os.path.join(get_path.get_path(), 'Report')
 file_name = os.path.join(report_path ,'result_' + now + '.html')
 fp = open(file_name , 'wb')
-runner = HTMLTestRunner.HTMLTestRunner(stream = fp,description = '测试结果',title = '我的测试报告')
+runner = HTMLTestRunner.HTMLTestRunner(stream = fp , description = '测试结果' , title = '我的测试报告')
 
 #执行测试套件
 runner.run(alltestnames)
