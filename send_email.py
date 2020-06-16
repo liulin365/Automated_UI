@@ -16,10 +16,10 @@ password = read_config.ReadConfig().get_email('password')
 
 # 找出Report下最新的报告
 def find_new_email():
+    # 列表形式返回
     lists = os.listdir(report_path)
-    lists.sort(key = lambda fn: os.path.getmtime(report_path + "\\" + fn) if not
-    os.path.isdir(report_path + "\\" + fn) else 0)
-    # print('最新的文件为： ' + lists[-1])
+    # 以修改时间来排序
+    lists.sort(key = lambda fn : os.path.getmtime(report_path))
     file_name = lists[-1]
     file_path = os.path.join(report_path, lists[-1])
     return file_path , file_name
@@ -38,7 +38,7 @@ def make_email():
     att1 = MIMEText(open(file_path, 'rb').read(), 'base64', 'utf-8')
     att1["Content-Type"] = 'application/octet-stream'
     # 这里的filename可以任意写，写什么名字，邮件中显示什么名字
-    att1["Content-Disposition"] = f"attachment; filename = {file_name}.html"
+    att1["Content-Disposition"] = f"attachment; filename = {file_name}接口测试报告.html"
     message.attach(att1)
     return message
 
