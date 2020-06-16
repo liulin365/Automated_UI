@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
 import os
-from Config import get_path
+import xlwt
 import xlrd3
+from Config import get_path
 
 # 获取excel的路径
 def get_excel_path(excel_name):
@@ -22,6 +22,18 @@ def get_excel(excel_name):
         if excel_sheet.row_values(line)[0] != "case_name":
             cls.append(excel_sheet.row_values(line))
     return cls
+
+# 写入excel文件
+def write_excel():
+    myWorkbook = xlwt.Workbook()
+    mySheet = myWorkbook.add_sheet('A Test Sheet')
+    # 数据格式
+    myStyle = xlwt.easyxf('font: name Times New Roman, color-index red, bold on', num_format_str='#,##0.00')
+    mySheet.write(i, j, 1234.56, myStyle)
+    # 写入A3，数值等于1
+    mySheet.write(2, 0, 1)
+    #保存
+    myWorkbook.save('excelFile.xls')
 
 if __name__ == '__main__':
     get_excel("系统维护.xlsx")
