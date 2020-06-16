@@ -44,19 +44,19 @@ def make_email():
 
 # 发送最新的邮件
 def send_email():
-    # try:
+    try:
         message = make_email()
         smtp = SMTP(smtp_server, smtp_port)
         smtp.login(sender, password)
         smtp.sendmail(sender, recipient, message.as_string())
-    #     print("邮件已发送！")
-    #     except(Exception) as Error:
-    #     print("邮件发送失败！")
-    #     print(str(error))
-    #     print("错误文件：" + error.__traceback__.tb_frame.f_globals["__file__"])
-    #     print("错误行数：" + error.__traceback__.tb_lineno)
-    # finally:
-    #     smtp.quit()
+        print("邮件已发送！")
+    except(Exception) as Error:
+        print("邮件发送失败！")
+        print(str(error))
+        print("错误文件：" + error.__traceback__.tb_frame.f_globals["__file__"])
+        print("错误行数：" + error.__traceback__.tb_lineno)
+    finally:
+        smtp.quit()
 
 
 if __name__ == '__main__':
