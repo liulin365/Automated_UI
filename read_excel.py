@@ -8,7 +8,7 @@ def get_excel_path(excel_name):
     excel_name_path = os.path.join(get_path.get_path(), 'Test_File', excel_name)
     return excel_name_path
 
-# 获取excel的内容
+# 读取excel文件
 def get_excel(excel_name):
     cls = []
     # 打开excel并保存内容至open_excel
@@ -26,7 +26,6 @@ def get_excel(excel_name):
 # 写入excel文件
 def write_excel():
     myWorkbook = xlwt.Workbook()
-    mySheet = myWorkbook.add_sheet('A Test Sheet')
     # 数据格式
     myStyle = xlwt.easyxf('font: name Times New Roman, color-index red, bold on', num_format_str='#,##0.00')
     mySheet.write(i, j, 1234.56, myStyle)
@@ -35,7 +34,10 @@ def write_excel():
     #保存
     myWorkbook.save('excelFile.xls')
 
+# 修改excel文件
+
+
 if __name__ == '__main__':
-    get_excel("系统维护.xlsx")
+    get_excel("case_1.xlsx")
 
 
