@@ -24,14 +24,6 @@ def get_excel(excel_name):
     return cls
 
 # 写入excel文件
-def write_excel(i , j):
-    myWorkbook = xlwt.Workbook()
-    # 数据格式
-    myStyle = xlwt.easyxf('font: name Times New Roman, color-index red, bold on', num_format_str='#,##0.00')
-
-    mySheet.write(i, j, 1234.56, myStyle)
-    #保存
-    myWorkbook.save('excelFile.xls')
 
 
 
